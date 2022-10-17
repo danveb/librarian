@@ -1,0 +1,98 @@
+.app {
+    height: 100vh; 
+    padding: 0px 100px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    /* text-align: center;  */
+}
+
+.books {
+    display: flex; 
+    gap: 10px; 
+}
+
+.book {
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.error {
+    color: red; 
+}
+
+a {
+    display: block; 
+    width: 100%; 
+    height: 100%; 
+    text-decoration: none; 
+}
+
+img {
+    width: 200px; 
+    height: 300px;
+    object-fit: cover; 
+    background-color: lightcyan; 
+}
+
+form {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+label {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+input[type='text'],
+input[type='number'] {
+    border: 1px solid #dedede;
+    border-radius: 2px;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    border: 0;
+    font-size: 16px;
+    margin: 10px 0 30px; 
+    padding: 10px;
+    color: var(--alice-blue);
+    cursor: pointer;
+}
+
+.btn-new { 
+    background-color: var(--raisin-black); 
+}
+
+.btn-new a {
+    color: var(--alice-blue); 
+    text-decoration: none; 
+}
+
+.btn-add {
+    background-color: #9c88ff;
+}
+
+.btn-delete {
+    background-color: crimson; 
+}
+
+.btn-update {
+    background-color: dodgerblue; 
+}
+
+.btn:focus {
+    outline: 0;
+}
