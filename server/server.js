@@ -2,10 +2,14 @@ const express = require("express");
 const colors = require("colors");
 const dotenv = require("dotenv").config(); 
 const PORT = process.env.PORT || 4000; 
+const cors = require("cors"); 
 const booksRoutes = require("./routes/booksRoutes.js"); 
 
 // initialize express app
 const app = express();
+
+// use cors middleware to make requests from frontend
+app.use(cors()); 
 
 // body parser for JSON 
 app.use(express.json()); 
