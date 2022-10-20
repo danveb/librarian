@@ -1,0 +1,12 @@
+.book {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    flex-direction: column; 
+    margin: 30px auto; 
+}
+
+.book img {
+    width: 245px; 
+}

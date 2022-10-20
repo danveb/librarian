@@ -1,0 +1,14 @@
+.bookCover img{
+    width: 250px; 
+    margin: 20px 0; 
+}
+
+.bookCover a {
+    text-decoration: none; 
+    color: var(--alice-white); 
+    display: inline-block; 
+}
+
+.bookCover p {
+    font-size: 14px;  
+}

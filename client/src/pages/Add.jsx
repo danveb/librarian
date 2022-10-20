@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Jumbotron from "../components/Jumbotron";
+import { jumbotronAddBook } from "../constants/jumbotron";
+import "../styles/Add.css"; 
 
 const Add = () => {
     // API_URL
@@ -13,7 +16,7 @@ const Add = () => {
     const [formData, setFormData] = useState({
         title: "",
         description: "", 
-        cover: "",
+        cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
         price: 0, 
     });
 
@@ -38,64 +41,75 @@ const Add = () => {
             cover, 
             price: +price, 
         }; 
-        // console.log("submitted new book"); 
         try {
             const response = await axios.post(`${API_URL}/api/books`, newBook);
             console.log(response.data); 
-            navigate("/");
+            navigate("/library");
         } catch(error) {
             console.log(error); 
         };
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h3>Add new book</h3>
-            <div className="form-control">
-                <label htmlFor="title">Title</label>
-                <input 
-                    id="title"
-                    type="text"
-                    name="title"
-                    value={title}
-                    onChange={handleChange}
-                    placeholder="Enter title..."
-                />
+        <>
+            {jumbotronAddBook.map((item) => (
+                <Jumbotron key={item.id} title={item.title} text={item.text} />
+            ))}
+            <div className="addForm">
+                <div className="addForm__wrapper">
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-control">
+                            <label htmlFor="title">Title (max 255 characters)</label>
+                            <input 
+                                id="title"
+                                type="text"
+                                name="title"
+                                value={title}
+                                onChange={handleChange}
+                                placeholder="Enter title..."
+                                required
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label htmlFor="description">Description (max 255 characters)</label>
+                            <input 
+                                id="description"
+                                type="text"
+                                name="description"
+                                value={description}
+                                onChange={handleChange}
+                                placeholder="Enter description..."
+                                required
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label htmlFor="cover">Cover (default cover)</label>
+                            <input 
+                                id="cover"
+                                type="text"
+                                name="cover"
+                                value={cover}
+                                onChange={handleChange}
+                                placeholder="Enter cover..."
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label htmlFor="price">Price</label>
+                            <input 
+                                id="price"
+                                type="number"
+                                name="price"
+                                value={price}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+
+                        <button className="btn btn-add">Submit</button>
+                    </form>
+                </div>
             </div>
-            <div className="form-control">
-                <label htmlFor="description">Description</label>
-                <input 
-                    id="description"
-                    type="text"
-                    name="description"
-                    value={description}
-                    onChange={handleChange}
-                    placeholder="Enter description..."
-                />
-            </div>
-            <div className="form-control">
-                <label htmlFor="cover">Cover</label>
-                <input 
-                    id="cover"
-                    type="text"
-                    name="cover"
-                    value={cover}
-                    onChange={handleChange}
-                    placeholder="Enter cover..."
-                />
-            </div>
-            <div className="form-control">
-                <label htmlFor="price">Price</label>
-                <input 
-                    id="price"
-                    type="number"
-                    name="price"
-                    value={price}
-                    onChange={handleChange}
-                />
-            </div>
-            <button className="btn btn-add">Submit</button>
-        </form>
+        </>
     )
 }
 

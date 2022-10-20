@@ -1,0 +1,28 @@
+.bookList {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    width: 80%; 
+    margin: 50px auto; 
+    gap: 10px; 
+    flex-wrap: wrap; 
+}
+
+.bookList__btn {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.btn-add-book {
+    background-color: var(--ny-pink); 
+}
+
+@media only screen and (min-width: 768px) {
+    .bookList {
+        flex-direction: row; 
+        justify-content: space-around; 
+        gap: 20px; 
+    }
+}

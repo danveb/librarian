@@ -1,0 +1,28 @@
+.jumbotron {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.jumbotron__wrapper { 
+    max-width: 800px; 
+    width: 100%; 
+    margin: 0 auto; 
+    background-color: var(--raisin-black); 
+    text-align: center;
+}
+
+.jumbotron__wrapper h1 {
+    font-size: 50px; 
+    background: linear-gradient(271deg,#a0e9ff 30%,#a162e8 50%,#f093b0 70%,#edca85 94%);
+    background-clip: text; 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.jumbotron__wrapper p {
+    color: darkgray; 
+    line-height: 2em; 
+    font-style: italic; 
+}
