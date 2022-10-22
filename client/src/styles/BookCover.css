@@ -1,6 +1,6 @@
 .bookCover img{
     width: 250px; 
-    margin: 20px 0; 
+    margin: 15px 0; 
 }
 
 .bookCover a {
@@ -11,4 +11,9 @@
 
 .bookCover p {
     font-size: 14px;  
+}
+
+.bookCover span {
+    font-size: 12px; 
+    font-style: italic; 
 }

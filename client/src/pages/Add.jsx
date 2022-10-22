@@ -17,11 +17,13 @@ const Add = () => {
         title: "",
         description: "", 
         cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
-        price: 0, 
+        price: 9.99, 
+        author: "", 
+        publisher: "", 
     });
 
     // destructure formData 
-    const { title, description, cover, price } = formData; 
+    const { title, description, cover, price, author, publisher } = formData; 
 
     // handleChange
     const handleChange = (e) => {
@@ -40,6 +42,8 @@ const Add = () => {
             description, 
             cover, 
             price: +price, 
+            author, 
+            publisher, 
         }; 
         try {
             const response = await axios.post(`${API_URL}/api/books`, newBook);
@@ -94,7 +98,7 @@ const Add = () => {
                             />
                         </div>
                         <div className="form-control">
-                            <label htmlFor="price">Price</label>
+                            <label htmlFor="price">Price (default price)</label>
                             <input 
                                 id="price"
                                 type="number"
@@ -104,7 +108,30 @@ const Add = () => {
                                 required
                             />
                         </div>
-
+                        <div className="form-control">
+                            <label htmlFor="author">Author</label>
+                            <input 
+                                id="author"
+                                type="text"
+                                name="author"
+                                value={author}
+                                onChange={handleChange}
+                                placeholder="Enter author..."
+                                required
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label htmlFor="publisher">Publisher</label>
+                            <input 
+                                id="publisher"
+                                type="text"
+                                name="publisher"
+                                value={publisher}
+                                onChange={handleChange}
+                                placeholder="Enter publisher..."
+                                required
+                            />
+                        </div>
                         <button className="btn btn-add">Submit</button>
                     </form>
                 </div>

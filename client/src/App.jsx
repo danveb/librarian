@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Menu from "./components/Menu";
 import Home from "./pages/Home";
 import BookList from "./pages/BookList";
-import Book from "./components/Book";
+import Book from "./pages/Book";
 import Add from "./pages/Add";
 import Update from "./pages/Update";
 import "./App.css"; 

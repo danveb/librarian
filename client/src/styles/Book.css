@@ -10,3 +10,8 @@
 .book img {
     width: 245px; 
 }
+
+.book span { 
+    font-size: 12px; 
+    margin: 8px 0; 
+}

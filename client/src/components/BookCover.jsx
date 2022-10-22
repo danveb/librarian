@@ -9,8 +9,7 @@ const BookCover = ({ book }) => {
                     {book.cover && <img src={book.cover} alt="book cover" />}
                 </Link>
                 <p>{book.title}</p>
-                {/* add later to books table -> editorial */}
-                {/* <p>{book.editorial}</p> */}
+                <span>{book.author}</span>
             </div>
         </>
     )

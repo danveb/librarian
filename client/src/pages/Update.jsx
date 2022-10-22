@@ -20,12 +20,14 @@ const Update = () => {
     const [formData, setFormData] = useState({
         title: "",
         description: "",
-        cover: "",
-        price: 0
+        cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
+        price: 0, 
+        author: "",
+        publisher: "", 
     });
 
     // destructure formData 
-    const { title, description, cover, price } = formData; 
+    const { title, description, cover, price, author, publisher } = formData; 
 
     // handleChange
     const handleChange = (e) => {
@@ -44,6 +46,8 @@ const Update = () => {
             description, 
             cover, 
             price: +price, 
+            author, 
+            publisher, 
         }; 
         // console.log("updated existing book"); 
         try {
@@ -64,7 +68,7 @@ const Update = () => {
                 <div className="updateForm__wrapper">
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">
-                            <label htmlFor="title">Title</label>
+                            <label htmlFor="title">Title (max 255 characters)</label>
                             <input 
                                 id="title"
                                 type="text"
@@ -75,7 +79,7 @@ const Update = () => {
                             />
                         </div>
                         <div className="form-control">
-                            <label htmlFor="description">Description</label>
+                            <label htmlFor="description">Description (max 255 characters)</label>
                             <input 
                                 id="description"
                                 type="text"
@@ -86,7 +90,7 @@ const Update = () => {
                             />
                         </div>
                         <div className="form-control">
-                            <label htmlFor="cover">Cover</label>
+                            <label htmlFor="cover">Cover (default cover)</label>
                             <input 
                                 id="cover"
                                 type="text"
@@ -97,13 +101,37 @@ const Update = () => {
                             />
                         </div>
                         <div className="form-control">
-                            <label htmlFor="price">Price</label>
+                            <label htmlFor="price">Price (default price)</label>
                             <input 
                                 id="price"
                                 type="number"
                                 name="price"
                                 value={price}
                                 onChange={handleChange}
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label htmlFor="author">Author</label>
+                            <input 
+                                id="author"
+                                type="text"
+                                name="author"
+                                value={author}
+                                onChange={handleChange}
+                                placeholder="Enter author..."
+                                required
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label htmlFor="publisher">Publisher</label>
+                            <input 
+                                id="publisher"
+                                type="text"
+                                name="publisher"
+                                value={publisher}
+                                onChange={handleChange}
+                                placeholder="Enter publisher..."
+                                required
                             />
                         </div>
                         <button className="btn btn-update">Submit</button>

@@ -1,12 +1,12 @@
 .updateForm {
-    height: calc(100vh - 299px); 
+    width: 100%; 
 }
 
 .updateForm__wrapper {
-    width: 80%; 
+    max-width: 300px; 
     margin: 0 auto; 
     border-radius: 15px; 
-    background-color: var(--baby-pink); 
+    background-color: var(--alice-blue); 
 }
 
 form {
@@ -15,11 +15,11 @@ form {
     justify-content: center; 
     align-items: center; 
     font-family: "Quicksand", sans-serif; 
-    margin-top: 60px; 
+    margin-top: 25px; 
 }
 
 .form-control {
-    margin: 10px 0; 
+    margin: 5px 0; 
     width: 80%; 
 }
 
@@ -28,12 +28,13 @@ form {
     color: var(--rich-black); 
     font-size: 14px; 
     margin: 5px 0; 
+
 }
 
 .form-control input {
     line-height: 1em; 
     outline: 0; 
-    border: 1px solid var(--rich-black); 
+    border: none; 
     padding: 10px 5px;
     width: 100%; 
     font-size: 12px; 

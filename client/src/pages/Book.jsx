@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import axios from "axios"; 
 import "../styles/Book.css"; 
 import { useEffect } from "react";
-import Jumbotron from "./Jumbotron";
+import Jumbotron from "../components/Jumbotron";
 
 const Book = () => {
     const [book, setBook] = useState([]); 
@@ -54,7 +54,9 @@ const Book = () => {
                     <Jumbotron title={item.title} text={item.description} />
                     <div className="book">
                         {item.cover && <img src={item.cover} alt="book cover" />}
-                        <span>$ {item.price}</span>
+                        <span>Author: {item.author}</span>
+                        <span>Publisher: {item.publisher}</span>
+                        <span>Price: ${item.price}</span>
                         <button className="btn btn-update"><Link to={`/library/${item.id}/update`}>Update</Link></button>
                     </div>
                 </div>

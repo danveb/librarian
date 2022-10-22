@@ -18,8 +18,8 @@ const getBooks = async (req, res, next) => {
 // POST /api/books 
 const addBook = async (req, res, next) => {
     try {
-        const { title, description, cover, price } = req.body; 
-        const book = await pool.query('INSERT INTO books (title, description, cover, price) VALUES($1, $2, $3, $4) RETURNING title, description, cover, price', [title, description, cover, price]); 
+        const { title, description, cover, price, author, publisher } = req.body; 
+        const book = await pool.query('INSERT INTO books (title, description, cover, price, author, publisher) VALUES($1, $2, $3, $4, $5, $6) RETURNING title, description, cover, price, author, publisher', [title, description, cover, price, author, publisher]); 
         // console.log(book.rows); 
         res.status(201).json(book.rows); 
     } catch(error) {
@@ -49,8 +49,8 @@ const getBook = async (req, res, next) => {
 const updateBook = async (req, res, next) => {
     try {
         const { id } = req.params; 
-        const { title, description, cover, price } = req.body; 
-        const book = await pool.query('UPDATE books SET title = $1, description = $2, cover = $3 , price = $4 WHERE id = $5 RETURNING id, title, description, cover, price', [title, description, cover, price, id]); 
+        const { title, description, cover, price, author, publisher } = req.body; 
+        const book = await pool.query('UPDATE books SET title = $1, description = $2, cover = $3, price = $4, author = $5, publisher = $6 WHERE id = $7 RETURNING id, title, description, cover, price, author, publisher', [title, description, cover, price, author, publisher, id]); 
         res.status(200).json(book.rows);     
     } catch(error) {
         next(error); 
