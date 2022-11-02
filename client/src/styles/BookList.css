@@ -19,6 +19,11 @@
     background-color: var(--ny-pink); 
 }
 
+.error {
+    text-align: center; 
+    font-size: 13px; 
+}
+
 @media only screen and (min-width: 768px) {
     .bookList {
         flex-direction: row; 

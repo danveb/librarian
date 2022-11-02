@@ -39,7 +39,7 @@ const BookList = () => {
             <Timeline />
             <div>
                 {books.length === 0 ? (
-                    <h3 className="error">The Library is empty... please check back again</h3>
+                    <h3 className="error">The Library is empty... please check back again or add a new book</h3>
                 ) : (
                     <>
                         <div className="bookList">
